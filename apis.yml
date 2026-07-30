@@ -1,7 +1,15 @@
 aid: makrwatch
 name: Makrwatch
-description: Makrwatch is a company surfaced as a portfolio company of y-combinator and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Makrwatch is a creator representation and sponsorship management platform that
+  sits between independent content creators and brands. It sources and filters
+  brand-deal opportunities, negotiates terms and rates, protects creator IP and
+  creative freedom, and handles the administrative work of briefs, timelines,
+  revisions, invoicing, and payment tracking so creators can focus on producing
+  content. Founded out of Y Combinator (W15) and based in New York City, the
+  platform reports $27M+ distributed to creators across 34,000+ sponsorships for
+  7,400+ creators operating in 118 countries. Makrwatch does not publish a public
+  developer API or documentation surface at this time.
 url: https://raw.githubusercontent.com/api-evangelist/makrwatch/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,14 +17,49 @@ x-backed-by:
 - y-combinator
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+image: https://www.makrwatch.com/favicon.ico
 tags:
 - Company
+- Creator Economy
+- Influencer Marketing
+- Sponsorship
+- Marketplace
+- Advertising
+- Content Creators
+- Brand Deals
 apis: []
+common:
+- type: DomainSecurity
+  url: security/makrwatch-domain-security.yml
+- type: Website
+  url: https://www.makrwatch.com
+- type: PrivacyPolicy
+  url: https://makrwatch.com/privacy-policy
+- type: TermsOfService
+  url: https://makrwatch.com/terms-and-conditions
+- type: SignUp
+  url: https://makrwatch.com/creator-application
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-20'
+  status: minimal
+  artifacts_added: 0
+  pass: local-v1

@@ -8,8 +8,14 @@ description: >-
   revisions, invoicing, and payment tracking so creators can focus on producing
   content. Founded out of Y Combinator (W15) and based in New York City, the
   platform reports $27M+ distributed to creators across 34,000+ sponsorships for
-  7,400+ creators operating in 118 countries. Makrwatch does not publish a public
-  developer API or documentation surface at this time.
+  7,400+ creators operating in 118 countries. The company was founded in 2013 as
+  themidgame and still operates its GitHub organization under that name. Makrwatch
+  does not publish a public developer API or documentation surface at this time:
+  there is no developer portal, API reference, OpenAPI, SDK, MCP server or agent
+  card anywhere on its public surface, and its two AWS API Gateway hosts
+  (api.makrwatch.com and platform.makrwatch.com) are private backends for its own
+  Creators and Brands applications, answering every unauthenticated request with
+  HTTP 403.
 url: https://raw.githubusercontent.com/api-evangelist/makrwatch/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -30,8 +36,8 @@ accessModel:
   method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-20'
-image: https://www.makrwatch.com/favicon.ico
+modified: '2026-08-12'
+image: https://cdn.prod.website-files.com/6a0745a6b546079e565e03aa/6a344565c429cb6500b6b433_Opengraph.png
 tags:
 - Company
 - Creator Economy
@@ -53,13 +59,51 @@ common:
   url: https://makrwatch.com/terms-and-conditions
 - type: SignUp
   url: https://makrwatch.com/creator-application
+- type: Login
+  url: https://creators.makrwatch.com/
+- type: HelpCenter
+  url: https://makrwatch.zendesk.com/hc/en-us
+- type: GitHubOrganization
+  url: https://github.com/themidgame
+- type: Packages
+  url: packages/makrwatch-packages.yml
+- type: LLMsTxt
+  url: llms/makrwatch-llms.txt
+- type: Plans
+  url: plans/makrwatch-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/makrwatch-rate-limits.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 x-enrichment:
-  date: '2026-07-20'
+  date: '2026-08-12'
   status: minimal
-  artifacts_added: 0
+  artifacts_added: 5
   pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Makrwatch ships software only as an end-user product: a six-page Webflow
+    marketing site with no developer, API or integrations route, a private
+    Next.js Creators Platform whose own robots.txt calls it a "private app" and
+    disallows /api, and two AWS API Gateway hosts (api.makrwatch.com,
+    platform.makrwatch.com) that answer every unauthenticated path with HTTP 403
+    {"message":"Forbidden"} — there is no developer program to gate, and the
+    108-article Zendesk help center is entirely creator payment and video-review
+    support with no API content.
+  evidence:
+  - url: https://api.makrwatch.com/openapi.json
+    status: 403
+  - url: https://makrwatch.com/openapi.json
+    status: 404
+  - url: https://makrwatch.com/.well-known/agent-card.json
+    status: 404
+  - url: https://creators.makrwatch.com/robots.txt
+    status: 200
+  - url: https://makrwatch.zendesk.com/api/v2/help_center/en-us/articles.json
+    status: 200
+  checked: '2026-08-12'

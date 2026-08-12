@@ -1,0 +1,236 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  Live unauthenticated HTTP probes of every Makrwatch host discovered by DNS
+  enumeration on 2026-08-12. No pointer is emitted from this file: not one path
+  returned a real document.
+summary:
+  hosts_probed: 5
+  paths_probed: 8
+  documents_found: 0
+  note: >-
+    Makrwatch serves no /.well-known/ documents on any host. The marketing site
+    answers every /.well-known/* request with a purpose-built 404 body
+    ("Invalid .well-known request"), the two AWS API Gateway hosts answer 403
+    Forbidden, the creators portal 404s into its Next.js shell, and
+    brands.makrwatch.com is an SPA catch-all that answers 200 with the SAME
+    9,076-byte HTML document for every path — that is a false positive, not a
+    served document, and it is recorded as a miss.
+hosts:
+- host: makrwatch.com
+  role: marketing site (Webflow)
+  probes:
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+    file: null
+- host: api.makrwatch.com
+  role: >-
+    AWS API Gateway / CloudFront edge. Resolves, terminates TLS, and answers
+    every path — including / — with {"message":"Forbidden"}. A real API host with
+    no public route, no public reference and no published contract.
+  probes:
+  - path: /.well-known/security.txt
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/api-catalog
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/agent.json
+    status: 403
+    content_type: application/json
+    file: null
+- host: platform.makrwatch.com
+  role: >-
+    Second AWS API Gateway / CloudFront edge, same {"message":"Forbidden"}
+    behaviour as api.makrwatch.com.
+  probes:
+  - path: /.well-known/security.txt
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/api-catalog
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 403
+    content_type: application/json
+    file: null
+  - path: /.well-known/agent.json
+    status: 403
+    content_type: application/json
+    file: null
+- host: creators.makrwatch.com
+  role: >-
+    Makrwatch Creators Platform — a private Next.js application. Its own
+    robots.txt says "Creators Portal — private app, only profile pages are
+    public" and disallows /api, /auth, /offers, /payments, /settings and
+    /submissions.
+  probes:
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+    file: null
+- host: brands.makrwatch.com
+  role: >-
+    Brands application. SPA catch-all — returns HTTP 200 with an identical
+    9,076-byte HTML shell for EVERY path probed, including /openapi.json,
+    /graphql and /robots.txt.
+  false_positive: true
+  probes:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    file: null
+    note: HTML SPA shell, not a security.txt. Counted as a miss.
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    file: null
+    note: HTML SPA shell, not JSON metadata. Counted as a miss.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    file: null
+    note: HTML SPA shell. Counted as a miss.
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: text/html
+    file: null
+    note: HTML SPA shell. Counted as a miss.
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    file: null
+    note: HTML SPA shell. Counted as a miss.
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    file: null
+    note: HTML SPA shell. Counted as a miss.
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    file: null
+    note: >-
+      HTML SPA shell — does NOT parse as a JSON object and carries none of the
+      AgentCard fields. No agent card exists; nothing was saved to a2a/.
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    file: null
+    note: HTML SPA shell. Counted as a miss.
+contract_discovery:
+  note: >-
+    Recorded alongside the well-known probe because the two passes ran together.
+    Spec paths (/openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json,
+    /api-docs, /docs, /redoc, /graphql, /llms.txt) were probed on every host
+    above. Every one missed.
+  results:
+  - host: makrwatch.com
+    verdict: 404 on all spec paths
+  - host: api.makrwatch.com
+    verdict: 403 Forbidden on all spec paths
+  - host: platform.makrwatch.com
+    verdict: 403 Forbidden on all spec paths
+  - host: creators.makrwatch.com
+    verdict: 404 Next.js shell on all spec paths; /api disallowed by robots.txt
+  - host: brands.makrwatch.com
+    verdict: 200 SPA shell on all spec paths — no parseable spec
+  graphql_introspection: not attempted — no /graphql endpoint answered with JSON on any host
+  mcp_tools_list: not attempted — no MCP endpoint advertised anywhere on the public surface

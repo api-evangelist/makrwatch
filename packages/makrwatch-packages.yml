@@ -1,0 +1,74 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  npm registry metadata (registry.npmjs.org) plus the company's first-party
+  GitHub organization github.com/themidgame, whose profile name is "Makrwatch"
+  and whose blog field is http://www.makrwatch.com. "themidgame" is Makrwatch's
+  former company name, so the org is first-party.
+summary:
+  package_count: 1
+  sdk_count: 0
+  note: >-
+    Makrwatch publishes no client SDK for any Makrwatch API, because it publishes
+    no public API. The one package it has ever shipped to a registry is a helper
+    around a THIRD PARTY API (YouTube Data API v3) — it is first-party code, but
+    it is not an SDK for this company's own service, so no SDKs pointer is
+    emitted from this file. PyPI, RubyGems, Maven Central, NuGet, pkg.go.dev,
+    Packagist and crates.io return nothing under makrwatch or themidgame.
+packages:
+- name: node-youtube-data-api-helper
+  registry: npm
+  url: https://www.npmjs.com/package/node-youtube-data-api-helper
+  repository: https://github.com/themidgame/node-youtube-data-api-helper
+  language: JavaScript
+  official: true
+  sdk: false
+  license: Apache-2.0
+  version: 0.1.10
+  published: '2016-01-21'
+  first_published: '2015-12-14'
+  description: >-
+    YouTube Data API facade to add helper functions and extend the YouTube Data
+    API functionality.
+  note: >-
+    Published by the npm maintainer "themidgame" (Makrwatch's former name). Wraps
+    Google's YouTube Data API v3, not a Makrwatch API. Last release 2016-01-21 —
+    over ten years stale — and the backing repository has not been pushed to
+    since 2016-01-21. Recorded as first-party open source, NOT as an SDK.
+registries_searched:
+- registry: npm
+  query: makrwatch, themidgame, tmg-libs, monday-retry
+  result: 1 package found (node-youtube-data-api-helper); npm text search for "makrwatch" returned 0
+- registry: PyPI
+  query: makrwatch
+  result: 404
+- registry: RubyGems
+  query: makrwatch
+  result: 404
+- registry: crates.io
+  query: makrwatch
+  result: no crate (registry returned a data-access policy notice to the unauthenticated probe)
+- registry: Maven Central
+  query: makrwatch / themidgame
+  result: none
+- registry: NuGet
+  query: makrwatch
+  result: none
+- registry: pkg.go.dev
+  query: makrwatch
+  result: none
+- registry: Packagist
+  query: makrwatch
+  result: none
+github_organization:
+  url: https://github.com/themidgame
+  display_name: Makrwatch
+  description: Connecting brands with influencers
+  created: '2015-06-08'
+  public_repos: 8
+  note: >-
+    Eight public repositories, five of them forks or boilerplate. The non-fork
+    first-party repos are node-youtube-data-api-helper (2016), tmg-libs (2016,
+    internal data tooling, never published to npm), tmg-meteor-design (2016, a
+    Meteor design package), InsightDEWin18 (2018) and monday-retry (last pushed
+    2026-02-21). None of them is a client for a Makrwatch API.

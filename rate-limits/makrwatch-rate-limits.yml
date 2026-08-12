@@ -1,0 +1,28 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  Makrwatch's full public surface — the six-page makrwatch.com marketing site and
+  the 108-article Zendesk help center at makrwatch.zendesk.com — plus live
+  probes of api.makrwatch.com and platform.makrwatch.com.
+limit_count: 0
+headers_published: []
+status_on_exhaustion: null
+summary: >-
+  No rate limits are published, because no public API is published. Makrwatch has
+  no developer portal, no API reference and no terms-of-use section covering
+  programmatic access. Its two AWS API Gateway hosts (api.makrwatch.com,
+  platform.makrwatch.com) answer every unauthenticated request with HTTP 403
+  {"message":"Forbidden"}, so no RateLimit-*, X-RateLimit-* or Retry-After
+  response header could be observed either. An honest zero, recorded rather than
+  omitted.
+limits: []
+evidence:
+- url: https://api.makrwatch.com/
+  status: 403
+  finding: '{"message":"Forbidden"} — no rate-limit headers on the response'
+- url: https://platform.makrwatch.com/
+  status: 403
+  finding: '{"message":"Forbidden"} — no rate-limit headers on the response'
+- url: https://makrwatch.com/terms-and-conditions
+  status: 200
+  finding: no acceptable-use or API rate-limit clause

@@ -1,0 +1,29 @@
+generated: '2026-08-12'
+method: searched
+source: https://makrwatch.com/brands
+plan_count: 0
+currency: null
+billing_model: none-published
+summary: >-
+  Makrwatch publishes no plans, no price points and no pricing page of any kind.
+  The brand side of the business runs entirely through a contact-sales form at
+  https://makrwatch.com/brands#Sales-form; the page markets "data-backed
+  pricing" ("We analyse market rates across thousands of deals to ensure your
+  programme is always competitively priced") without naming a single rate, tier
+  or fee. The creator side is a representation/agency relationship entered
+  through an application at https://makrwatch.com/creator-application — creators
+  are paid out through Tipalti rather than charged, and the company's own help
+  center documents payment methods and their fees but never a subscription
+  price. There is no self-serve signup, no free tier, and no API to meter, so
+  there is nothing to record as a plan.
+plans: []
+evidence:
+- url: https://makrwatch.com/brands
+  status: 200
+  finding: contact-sales form only; no named price, tier or rate card
+- url: https://makrwatch.com/creator-application
+  status: 200
+  finding: application form for representation; no pricing
+- url: https://makrwatch.com/
+  status: 200
+  finding: six-page marketing site with no /pricing or /plans route
